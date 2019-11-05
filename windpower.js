@@ -3789,6 +3789,12 @@ var geojsonMarkerOptions = {
 	fillOpacity: 0.8
 };
 
+// function redraw() {
+// 	W.tileInterpolator.createFun(interpolate => {
+// 		for (const lat in )
+// 	})
+// }
+
 // Initialize Windy API
 windyInit(options, windyAPI => {
     // windyAPI is ready, and contain 'map', 'store',
@@ -3804,6 +3810,22 @@ windyInit(options, windyAPI => {
 				return L.circleMarker(latlng,geojsonMarkerOptions)
 		}}).addTo(map);
 
+		wind_speeds = []
+
+		for (i in orphaned_wells) {
+			const coords = orphaned_wells[i]['geometry']['coordinates']
+			// lat = orphaned_wells[i]['properties']['Lat']
+			// lon = orphaned_wells[i]['properties']['Long']
+			W.tileInterpolator.createFun(interpolate => {
+				// const data = interpolate({lat, lon})
+				const wind = (coords ? utils.wind2oobj(coords) : null)
+			})
+
+			wind_speeds[i] = wind
+
+		}
+
+		console.log(wind_speeds)
     // L.popup()
     //     .setLatLng([51.05, -114.1])
     //     .setContent('Hello World')
