@@ -206,6 +206,11 @@ a:active {
   text-decoration: underline;
 }
 
+#windy{
+	height:450px;
+	width:100%;
+}
+
 #Circle{
    background-color:#12304E;
    background:linear-gradient(to bottom, #FEE140,#B721FF);
