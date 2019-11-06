@@ -89,7 +89,7 @@ body,html{margin:0;padding:0}
 	bottom: 0;
 	width: 100%;
 	z-index: -3;
-	background: -webkit-linear-gradient(90deg, rgba(255,102,102,1), rgba(255,255,255,0.0) 40%, rgba(255,102,102,1) 99%);
+	background: -webkit-linear-gradient(90deg, rgba(255,102,102,1), rgba(255,255,255,0.0) 50%, rgba(255,102,102,1) 99%);
 }
 
 .bg3::after {
@@ -97,6 +97,7 @@ body,html{margin:0;padding:0}
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
+  -
 	background-size: cover;
 	z-index: -2;
 }
