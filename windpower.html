@@ -1,0 +1,25 @@
+<plugin>
+    <div class="plugin-content">
+        <h2>Loads wind speeds and calculated wind power for potential sites</h2>
+    </div>
+
+    <script>
+        import pluginDataLoader from '@windy/pluginDataLoader';
+        import map from '@windy/map';
+
+        const DL_options = {
+            key: 'scLWW3eRjVaw4Oehb6WBobcQLQtbqRI4',
+            plugin: 'Owlet.AA-CAES',
+        };
+
+        const map_options = {
+            key: 'scLWW3eRjVaw4Oehb6WBobcQLQtbqRI4',
+            lat: 54.6,
+            lon: -115.5,
+            favOverlays: ['wind', 'clouds'],
+            zoom: 5,
+        }
+
+        load = pluginDataLoader(DL_options);
+
+    </script>

@@ -67,9 +67,9 @@ body,html{margin:0;padding:0}
 	top: 0;
 	bottom: 0;
 	width: 100%;
-	height: 120%;
+	height: 110%;
 	z-index: -1;
-	background: -webkit-linear-gradient(270deg, rgba(255,102,102,1), rgba(255,102,102,1) 10%, rgba(102,204,255,0.4) 50%, rgba(255,102,102,1) 80%);
+	background: -webkit-linear-gradient(90deg, rgba(255,102,102,1), rgba(255,102,102,1) 33%, rgba(102,204,255,0.2) 60%, rgba(102,204,255,0.2) 70%, rgba(255,102,102,1) 95%);
 }
 
 .bg2::after {
@@ -88,7 +88,8 @@ body,html{margin:0;padding:0}
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	background: -webkit-linear-gradient(93deg, rgba(255,102,102,1), rgba(255,102,102,0.05) 30%, rgba(255,102,102,0.8) 60%, rgba(255,102,102,1) 99%);
+	background: -webkit-linear-gradient(93deg, rgba(255,102,102,1), rgba(255,102,102,1) 7%, rgba(255,102,102,0.05) 33%,
+	rgba(255,102,102,0.8) 80%, rgba(255,102,102,1) 99%);
 }
 
 .bg3::after {
@@ -150,11 +151,30 @@ header h3 {
 	/* font-size-adjust: auto; */
 }
 
+
 header{
 	margin-top: 10px;
 	background: linear-gradient(145deg, rgba(255,255,255,1), rgba(255,102,102,1) 72%);
 }
-body h1 {
+body_h1 {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: white;
+	text-align: center;
+	font-size: 240%;
+	margin-top: -600px;
+	margin-bottom: 10px;
+	font-weight: bold;
+	/* font-size-adjust: auto; */
+}
+
+h4 {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: white;
+	text-align: center;
+	font-size: 210%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	/* font-size-adjust: auto; */
 }
 
 body{
@@ -183,7 +203,7 @@ p_blk{
 }
 
 a:link {
-  color: red;
+  color: #330000;
   background-color: transparent;
   text-decoration: none;
 }

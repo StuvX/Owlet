@@ -1,0 +1,27 @@
+{
+  "name": "albertair",
+  "version": "1.0.0",
+  "dependencies": {
+    "jstat": "^1.9.2",
+    "windy": "^1.0.1",
+    "windy-plugin": "^0.2.0"
+  },
+  "description": "website of Owlet",
+  "main": "Orphaned_Wells.js",
+  "devDependencies": {
+    "es-dev-server": "^1.23.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StuvX/Owlet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StuvX/Owlet/issues"
+  },
+  "homepage": "https://github.com/StuvX/Owlet#readme"
+}

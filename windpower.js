@@ -1,35 +1,15 @@
-// function loadJSON(callback) {
-//
-// 		var xobj = new XMLHttpRequest();
-// 				xobj.overrideMimeType("application/json");
-// 		xobj.open('GET', 'Orphaned_Wells.json', true); // Replace 'my_data' with the path to your file
-// 		xobj.onreadystatechange = function () {
-// 					if (xobj.readyState == 4 && xobj.status == "200") {
-// 						// Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-// 						callback(xobj.responseText);
-// 					}
-// 		};
-// 		xobj.send(null);
-//  }
-//
-// function init() {
-// 	 loadJSON(function(response) {
-// // Parse JSON string into object
-// 	var geojson = JSON.parse(response);
-// });
-// }
-
 const options = {
     // Required: API key
-    key: 'scLWW3eRjVaw4Oehb6WBobcQLQtbqRI4', // REPLACE WITH YOUR KEY !!!
-
-    // Put additional console output
+    key: 'scLWW3eRjVaw4Oehb6WBobcQLQtbqRI4',
     verbose: true,
-
-    // Optional: Initial state of the map
     lat: 54.6,
     lon: -115.5,
     zoom: 5,
+		hourFormat: '24h',
+		overlay: 'wind',
+		// acTime: 'next3d',
+		// numDirection: false,
+		// timestamp:Date.now(),
 };
 
 var orphaned_wells = {
@@ -3778,7 +3758,10 @@ var orphaned_wells = {
     { "type": "Feature", "properties": { "Licence": "Y0003057", "Licensee": "177293 Canada Ltd.", "Status": "RecExempt", "Lat": 57.0, "Long": -111.3, "Fluid": "Not Applicable", "SurfLoc": "09-13-097-09W4", "LicenseeID": "0001", "Address1": "15 Floor-150 6 Ave SW", "Address2": null, "City": "Calgary", "Province": "AB", "PostalCode": "T2P 3E3", "Phone": "(403) 296-8000" }, "geometry": { "type": "Point", "coordinates": [ -111.307918000408918, 57.420004999600465 ] } },
     { "type": "Feature", "properties": { "Licence": "Y0003058", "Licensee": "177293 Canada Ltd.", "Status": "RecExempt", "Lat": 57.0, "Long": -111.3, "Fluid": "Not Applicable", "SurfLoc": "16-14-097-09W4", "LicenseeID": "0001", "Address1": "15 Floor-150 6 Ave SW", "Address2": null, "City": "Calgary", "Province": "AB", "PostalCode": "T2P 3E3", "Phone": "(403) 296-8000" }, "geometry": { "type": "Point", "coordinates": [ -111.338702999336661, 57.422848000051424 ] } }
 ]
-}
+};
+
+const sites = {};
+const winds = {};
 
 var geojsonMarkerOptions = {
 	radius: 3,
@@ -3794,24 +3777,61 @@ windyInit(options, windyAPI => {
     // windyAPI is ready, and contain 'map', 'store',
     // 'picker' and other usefull stuff
 
-    const { utils, map } = windyAPI;
-    // .map is instance of Leaflet map
+    const { utils, map, picker, broadcast, store, overlays } = windyAPI;
 
-
-		L.geoJSON(orphaned_wells, {
+		L.geoJSON(orphanWells, {
 			pointToLayer: function (feature,latlng){
 				return L.circleMarker(latlng,geojsonMarkerOptions)
 		}}).addTo(map);
 
-		wind_speeds = [];
+    // .map is instance of Leaflet map
+		// store.set('acTime','next3d')
+		// store.set('numDirection',false)
+		// const{interpolator}=W;
 
-    for (i in orphaned_wells.features) {
-      const lat = (orphaned_wells.features[i]['properties']['Lat']);
-      const long = (orphaned_wells.features[i]['properties']['Long']);
-      const coords = (orphaned_wells.features[i]['geometry']['coordinates']);
+		var wind_speeds = [];
 
-      wind_speeds[i] = long
-    }
+		function redraw() {
+			W.tileInterpolator.createFun(interpolate => {
+				for (feat in orphaned_wells.features) {
+					const well_lat = (orphaned_wells.features[feat]['properties']['Lat']);
+					const well_lng = (orphaned_wells.features[feat]['properties']['Long']);
+					if (map.getBounds().contains(L.latLng(well_lat, well_lon))) {
+						wind_speeds[feat] = well_lng;
+						const well_gps = L.latlng(well_lat,well_lng);
+						const values = interpolate({well_lat, well_lng});
+						var windObj = (values ? utils.wind2obj(values) : null);
+						var windspeed = windObj.wind.toFixed(1);
+					}
+				}
+			});
+		};
+		// redraw();
+		//
+		// document.write(wind_speeds[8]);
+
+
+
+
+		// wind_speeds = [];
+
+    // for (i in orphaned_wells.features) {
+    //   const latitude = (orphaned_wells.features[i]['properties']['Lat']);
+    //   const longitude = (orphaned_wells.features[i]['properties']['Long']);
+		// 	// picker.open({lat:latitude, lon:longitude});
+		// 	broadcast.once('loadFinished', () => {
+    //     picker.open({ lat: latitude, lon: longitude });
+		// 		const {lat, lon, values, overlays} = picker.getParams();
+		// 		const dir = utils.wind2obj(values);
+		// 		document.write(dir.wind);
+    //     // Opening of a picker (async)
+    // });
+			// const {lat, lon, values, overlays} = picker.open({lat:latitude, lon:longitude}).getParams();
+			// document.write(values);
+      // const coords = (orphaned_wells.features[i]['geometry']['coordinates']);
+
+      // wind_speeds[i] = long;
+    // }
     // document.write(wind_speeds[8]);
 
 		// console.log(wind_speeds)

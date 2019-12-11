@@ -25,38 +25,41 @@
 
 <main class="wrapper">
   <section class="section parallax bg1">
-    <h1>Repurposing&nbsp;Orphaned&nbsp;Oil&nbsp;Wells -
-			<i>For&nbsp;a&nbsp;Net&#8209;Zero&nbspEmissions&nbsp;Future.</i></h1>
+    <body_h1>Repurposing&nbsp;Orphaned&nbsp;Oil&nbsp;Wells -
+			<i>For&nbsp;a&nbsp;Net&#8209;Zero&nbspEmissions&nbsp;Future.</i></body_h1>
   </section>
   <section class="section static">
-		<p_wht>Matching electricity generation to demand can drive up electricity prices,
-			 especially when expensive peaking plants determine costs.
-			 Adding energy storage to the grid smooths out the imbalance,
-			 resulting in cheaper energy prices, and enabling increased Renewables penetration.
+		<p_wht>Matching generation to demand drives electricity prices,
+			 today gas peaking plants determine costs.
+			 Energy storage smooths out the imbalance,
+			 providing cheaper energy, and enabling increased use of Renewables.
 		 </p_wht>
 	</section>
 	<section class="section parallax bg2">
 		 <p_wht>
 			 Renewables now provide the lowest cost electricity generation across
 			 <a href="https://ceri.ca/assets/files/Study_168_Full_Report.pdf">Canada.</a>
-			 Coupled with energy storage, electricity can be cheap and emissions free.
+			 Storage coupled Renewables provide cheap and clean energy.
 		 </p_wht>
 	</section>
 	<section class="section static">
-		<h1>Alberta has the best Class III onshore wind power potential in Canada. </h1>
+        <h4>Alberta has the best Class III onshore wind power potential in Canada.<br></h4>
 	</section>
-<!--	<div id="plugin"><a href="https://www.windy.com/plugins?54.6,-115.5,5">Windy plugin</a>: NPM <code>windy-plugin-owlet</code></div>-->
+    <section class = "section static">
+        <p_wht>Below we've mapped each orphaned well onto <a href="https://www.windy.com/?54.6,-115,5">Windy's</a> windspeed map.</p_wht>
+    </section>
 	<div id="windy"></div>
 	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
 	<script src="https://api4.windy.com/assets/libBoot.js"></script>
 	<script src="https://unpkg.com/jstat@1.9.2/dist/jstat.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 	<script>
 	const options = {
 		// Required: API key
 		key: 'scLWW3eRjVaw4Oehb6WBobcQLQtbqRI4',
 		verbose: true,
 		lat: 54.6,
-		lon: -115.5,
+		lon: -115,
 		zoom: 5,
 		hourFormat: '24h',
 		overlay: 'wind',
@@ -3874,8 +3877,6 @@
 			markers[latlon] = marker;
 		}
 
-
-
 		function getLatLon(latLon) {
 			const parts = latLon.split(' ');
 			return {lat: +parts[0], lon: +parts[1]};
@@ -3906,29 +3907,30 @@
 		function redraw() {
 			W.tileInterpolator.createFun(interpolate => {
 				let totalPower = 0
-				var popup = null;
+				// var popup = null;
 				for (const latlon in markers) {
 					if (map.getBounds().contains(getLatLon(latlon))) {
-						let wind;
-						if (store.get('overlay') == 'wind') {
-							//If the displaed overlay is 'wind' then use it.
-							const data = interpolate(getLatLon(latlon));
-							wind = utils.wind2obj(data);
-							totalPower += updateMarker(latlon, wind);
+                        let wind;
+                        if (store.get('overlay') == 'wind') {
+                            //If the displaed overlay is 'wind' then use it.
+                            const data = interpolate(getLatLon(latlon));
+                            wind = utils.wind2obj(data);
+                            totalPower += updateMarker(latlon, wind);
 
-						}
-					}
+                        }
+                    }
 				}
-				const popLoc = map.getCenter();
-				if (popup) {
-					popup.setLatLng(popLoc);
-					popup.update();
-				} else {
-					popup = L.popup()
-							.setLatLng(popLoc)
-							.setContent('Total power: '+ (totalPower/1000).toFixed(0) +' MW')
-							.openOn(map);
-				}
+                document.getElementById('windOut').innerHTML = ('Total power from a 4.2 MW turbine at each well on the map would be '+(totalPower/1000).toFixed(0)+' MW');
+				// const popLoc = map.getCenter();
+				// if (popup) {
+				// 	popup.setLatLng(popLoc);
+				// 	popup.update();
+				// } else {
+				// 	popup = L.popup()
+				// 			.setLatLng(popLoc)
+				// 			.setContent('Total power: '+ (totalPower/1000).toFixed(0) +' MW')
+				// 			.openOn(map);
+				// }
 			})
 		}
 
@@ -3943,16 +3945,18 @@
 		});
 	})
 
+	// request('http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet', function(err, res, body) {
+    //     console.log(body);
+    // });
+
+    // var url = "https://crossorigin.me/http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet";
+    // $.get(url, function(response) {
+    //     console.log(response);
+    // });
+
 	</script>
-
-	<!--<div id="windy-plugin-owlet"></div>-->
-	<!--<iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=-37.911&lon=145.135&zoom=5&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-37.911&detailLon=145.135&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>-->
-
-	<!--<script src="https://unpkg.com/windy-plugin-owlet@0.5.0/dist/plugin.js"></script>-->
-
-
 	<section class="section static">
-		<p_wht><br>Orphaned oil wells litter the countryside, with the potential to be repurposed for AA-CAES.</p_wht>
+        <p_wht id="windOut"></p_wht>
 	</section>
 	<section class="section parallax bg3">
 		<p_wht>
