@@ -43,7 +43,7 @@
 		 </p_wht>
 	</section>
 	<section class="section static">
-        <h4>Alberta has the best Class III onshore wind power potential in Canada.<br></h4>
+        <h4>Alberta has 193,976 wells for reclamation,<br>3,406 of which are orphaned<br>...and the best Class III onshore wind speeds.</h4>
 	</section>
     <section class = "section static">
         <p_wht>Below we've mapped each orphaned well onto <a href="https://www.windy.com/?54.6,-115,5">Windy's</a> windspeed map.</p_wht>
@@ -3820,6 +3820,7 @@
 		const {broadcast, map, store, utils} = windy;
 		// const sites = {};
 		const markers = {};
+		const licenses = {};
 
 		store.set('overlay', 'wind');
 		store.set('level', '100m');
@@ -3869,12 +3870,13 @@
 		}
 
 		for (const well of orphanWells.features) {
-			let wind;
 			let lat = well.geometry.coordinates[1];
 			let lon = well.geometry.coordinates[0];
 			let latlon = lat + ' ' + lon;
+			let license = well.properties.Licence;
 			const marker = L.circleMarker([lat, lon], wellStyle(0)).addTo(map);
 			markers[latlon] = marker;
+			licenses[latlon] = license;
 		}
 
 		function getLatLon(latLon) {
@@ -3899,7 +3901,7 @@
 				intense = power/4200;
 			}
 			markers[latlon].setStyle(wellStyle(intense));
-			let tooltip = '<div style="min-width: 50px;">' + windspd+ ' m/s <br> ' + (power/1000).toFixed(1) + ' MW </div>';
+			let tooltip = '<div style="min-width: 50px;">License: '+ licenses[latlon]+'<br>' + windspd+ ' m/s; ' + (power/1000).toFixed(1) + ' MW </div>';
 			markers[latlon].bindPopup(tooltip);
 			return power;
 		}
@@ -3920,7 +3922,7 @@
                         }
                     }
 				}
-                document.getElementById('windOut').innerHTML = ('Total power from a 4.2 MW turbine at each well on the map would be '+(totalPower/1000).toFixed(0)+' MW');
+                document.getElementById('windOut').innerHTML = ('Total power from a 4.2&nbspMW turbine at each well on the map would be '+(totalPower/1000).toFixed(0)+'&nbspMW');
 				// const popLoc = map.getCenter();
 				// if (popup) {
 				// 	popup.setLatLng(popLoc);
