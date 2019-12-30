@@ -52,6 +52,14 @@ body,html{margin:0;padding:0}
 	height: 20%;
 }
 
+.static_bottom {
+	position: relative;
+	background: -webkit-linear-gradient(-90deg, #313292, #313292 50%, rgba(255,102,102,1) 99%);
+	font-size: inherit;
+	height: 100%;
+	z-index: 0;
+}
+
 .bg1::after {
 	background-image: url(Assets/cunningham_ranch.jpg);
 	-webkit-background-size: cover;
@@ -226,9 +234,48 @@ a:active {
   text-decoration: underline;
 }
 
+.turbine-wrap {
+	height: 0;
+	padding-top: 100%;
+	position: relative;
+	background: rgba(255,102,102,1);
+}
+
+.turbine-position {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #313292;
+}
+
 #windy{
     display: table;
     position: center;
 	height:450px;
 	width:100%;
+}
+
+.tower{
+	fill: #ffffff
+}
+.blades{
+	fill: #ffffff;
+	animation: spinning 8s linear infinite;
+	transform-origin: 560px 533px;
+}
+.circle{
+	fill: #ffffff
+}
+
+.small {font: italic 2em sans-serif;}
+
+@keyframes spinning {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(120deg);
+	}
 }
