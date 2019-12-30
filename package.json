@@ -23,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/StuvX/Owlet/issues"
   },
-  "homepage": "https://github.com/StuvX/Owlet#readme"
+  "homepage": "https://github.com/StuvX/Owlet#readme",
+  "contributors": ["Willy", "Toly"]
 }
