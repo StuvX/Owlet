@@ -1,5 +1,12 @@
+:root {
+	--timing: 1;
+}
+
 /* Tiny reset thingy */
-body,html{margin:0;padding:0}
+body,html{
+	margin:0;
+	padding:0;
+}
 
 .wrapper {
   /* The height needs to be set to a fixed value for the effect to work.
@@ -266,9 +273,9 @@ a:active {
 	stroke-width: 1px;
 	fill: #ffffff;
 	fill-opacity: 0.05;
-	-webkit-animation: spinning 8s linear infinite;
-	-moz-animation: spinning 8s linear infinite;
-	animation: spinning 8s linear infinite;
+	-webkit-animation: spinning calc(var(--timing)*1.6s) linear infinite;
+	-moz-animation: spinning calc(var(--timing)*1.6s) linear infinite;
+	animation: spinning calc(var(--timing)*1.6s) linear infinite;
 	transform-origin: 560px 533px;
 	-webkit-transform-origin: 560px 533px;
 }
