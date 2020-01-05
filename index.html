@@ -1,89 +1,111 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<title>Owlet - homepage</title>
-		<link rel="stylesheet" href="AA_styles.css">
-		<meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-        />
-
-        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-        <script src="https://api4.windy.com/assets/libBoot.js"></script>
-<!--        <script src="https://unpkg.com/requirejs@2.3.6/bin/require.js"></script>-->
+<head>
+    <meta charset="utf-8">
+    <title>Owlet - homepage</title>
+    <link rel="stylesheet" href="AA_styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 
 
-	<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/cooper-black-std:n4:default;monoton:n4:default;bangers:n4:default.js" type="text/javascript"></script>
+    <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.-->
+    <script>var __adobewebfontsappname__ = "dreamweaver" </script>
+    <script src="http://use.edgefonts.net/cooper-black-std:n4:default;monoton:n4:default;bangers:n4:default.js"
+            type="text/javascript" async></script>
+	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" defer></script>
+	<script src="https://api4.windy.com/assets/libBoot.js" defer></script>
+	<script src="https://unpkg.com/jstat@1.9.2/dist/jstat.js" defer></script>
+	<script src="Orphaned_Wells.js" type="module" defer></script>
 
 
 </head>
-	<header>
-		<h1>Owlet<img src="Assets/SVG/Owlet.svg"/> </h1>
-		<h3>ENERGY STORAGE</h3>
-	</header>
-</html>
+<header>
+    <h1>Owlet<img src="Assets/SVG/Owlet.svg"/></h1>
+    <h2>ENERGY STORAGE</h2>
+</header>
+
 
 <main class="wrapper">
-  <section class="section parallax bg1">
-    <h1>Repurposing&nbsp;Orphaned&nbsp;Oil&nbsp;Wells -
-			<i>For&nbsp;Net&#8209;Zero&nbsp;Emissions&nbsp;Power.</i></h1>
-  </section>
-  <section class="section static">
-		<p_wht>Matching generation to demand drives electricity prices,
-			 today gas peaking plants determine costs.
-			 Energy storage smooths out the imbalance,
-			 providing cheaper energy, and enabling increased use of Renewables.
-		 </p_wht>
-	</section>
-	<section class="section parallax bg2">
-		 <p_wht>
-			 Renewables now provide the lowest cost electricity generation across
-			 <a href="https://ceri.ca/assets/files/Study_168_Full_Report.pdf">Canada.</a>
-		 </p_wht>
-	</section>
-	<section class="section static">
-        <h4>Alberta has 193,976 wells for reclamation,<br>3,406 of which are orphaned<br>...and the best Class III onshore wind speeds.</h4>
-	</section>
-    <section class = "section static">
-        <p_wht>Below we've mapped each orphaned well onto <a href="https://www.windy.com/?54.6,-115,5">Windy's</a> windspeed map.</p_wht>
+    <div class="section parallax bg1">
+        <h1>Repurposing&nbsp;Orphaned&nbsp;Oil&nbsp;Wells -
+            <i>For&nbsp;Net&#8209;Zero&nbsp;Emissions&nbsp;Power.</i></h1>
+    </div>
+    <div class="static">
+        <h4>Matching generation to demand drives electricity prices,
+            today Natural Gas peaking plants determine end user costs.
+            Energy storage smooths out the imbalance,
+            providing cheaper energy, and enabling increased Renewable penetration.
+        </h4>
+    </div>
+    <section class="section parallax bg2">
+        <h4>
+            Renewables provide the lowest cost electricity generation across
+            <a href="https://ceri.ca/assets/files/Study_168_Full_Report.pdf">Canada.</a>
+        </h4>
     </section>
-	<div id="windy">
-	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-	<script src="https://api4.windy.com/assets/libBoot.js"></script>
-	<script src="https://unpkg.com/jstat@1.9.2/dist/jstat.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script src="Orphaned_Wells.js" type="module"></script>
-	</div>
-	<section class="section static">
-        <p_wht id="windOut"></p_wht>
-	</section>
-
-	<section class="section parallax bg3">
-		<p_wht>
-			Energy is stored when the wind is
-			blowing, and released to meet peak demands in the evening.
-		</p_wht>
-	</section>
-    <section class="static_bottom parallax">
-        <p_wht>When the wind blows the orphaned well fills with compressed air.</p_wht>
-		<svg version="1.1"
-			 xmlns="http://www.w3.org/2000/svg"
-			 xmlns:xlink="http://www.w3.org/1999/xlink"
-			 height="600px"
-			 width="100%"
-			 viewBox="0 0 1154.57 1309.17"
-			 preserveAspectRatio="xMaxYMin meet">
-			<path class="tower" d="M521.88,1309.17l29.24-769.9c.39-10.33,3.49-18.17,7.19-18.17h3.1c3.36,0,6.09,7.67,6.09,17.12v771Z"/>
-			<polyline class="blades" points="559.13 533.16 656.14 554.45 761.19 631.53 866.67 700.38 995.85 780.66 993.51 788.31 691.04 621.59 625.61 585.9 559.13 533.16 529.06 438.49 543.29 308.97 550.17 183.2 555.11 31.2 562.9 29.4 569.75 374.7 571.56 449.21 559.13 533.16 559.13 533.16 492.18 606.52 372.89 658.96 260.53 715.89 126.42 787.62 120.97 781.77 416.59 603.18 480.21 564.36 559.13 533.16"/>
-			<circle class="circle" cx="559.12" cy="533.16" r="14.43"/>
+    <div class="static">
+        <h4>Alberta has 193,976 wells for reclamation,<br>3,406 of which are orphaned<br>...and the best Class III
+            onshore wind speeds. Below we've mapped each orphaned well onto <a href="https://www.windy.com/?54.6,-115,5">Windy's</a>
+            windspeed map.
+        </h4>
+    </div>
+    <div id="windy">
+    </div>
+    <div class="static">
+        <h4 id="windOut"></h4>
+    </div>
+    <div class="section parallax bg3">
+        <h4>
+            Energy is stored when the wind is
+            blowing, and released to meet peak demands in the evening.
+        </h4>
+    </div>
+    <div class="static_bottom">
+        <h4>When the wind blows the orphaned well fills with compressed air.</h4>
+		<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2296.57 2609.77">
+			<defs>
+				<linearGradient id="linear-gradient-1" x1="1362.37" y1="1400.5" x2="1689.52" y2="1400.5" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="red">
+						<animate dur="6s" attributeName="stop-color" repeatCount="1" from="#172292" to="red" />
+					</stop>
+					<stop offset="0.2" stop-color="red">
+						<animate dur="8s" attributeName="stop-color" repeatCount="1" from="#172292" to="red" />
+					</stop>
+					<stop offset=".8" stop-color="#0ff">
+						<animate dur="12s" attributeName="stop-color" repeatCount="1" from="#172292" to="#0ff" />
+					</stop>
+				</linearGradient>
+				<linearGradient id="linear-gradient-2" x1="1362.37" y1="1400.5" x2="1689.52" y2="1400.5" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="#0ff"></stop>
+					<stop offset="0.1" stop-color="#0ff">
+						<animate dur="3s" attributeName="offset" repeatCount="indefinite" from="0.1" to="0.7" />
+					</stop>
+					<stop offset="0.2" stop-color="#fff">
+						<animate dur="3s" attributeName="offset" repeatCount="indefinite" from="0.2" to="0.8" />
+					</stop>
+					<stop offset="0.3" stop-color="#0ff">
+						<animate dur="3s" attributeName="offset" repeatCount="indefinite" from="0.3" to="0.9" />
+					</stop>
+					<stop offset="1" stop-color="#0ff"></stop>
+				</linearGradient>
+			</defs>
+			<path id="tower" class="turbine" d="M1506.4 1309.17l29.23-769.9c.4-10.33 3.5-18.17 7.2-18.17h3.09c3.37 0 6.1 7.67 6.1 17.12v771z"/>
+			<path id="blades" class="blades" d="M1543.64 533.16l97 21.29 105 77.08 105.48 68.85 129.17 80.28-2.33 7.65-302.41-166.72-65.42-35.69-66.49-52.74-30.06-94.67L1527.81 309l6.88-125.77 4.93-152 7.8-1.8 6.85 345.3 1.81 74.51-12.44 83.95zm-78.92 31.2l-63.62 38.82-295.61 178.59 5.45 5.85 134.11-71.73L1357.41 659l119.28-52.43 67-73.37z"/>
+			<circle id="circle" class="turbine" cx="1544.14" cy="530" r="14.43"/>
+			<path id="ground" class="ground" d="M2295.57 1267c-103.76 5-263.69 13.1-460.73 24.25-229.09 13-298.38 18.21-402.13 18-240.18-.59-401.64-30.06-509.23-44.23C719.05 1238 415.34 1227.55 0 1311.42V2638h2295.57z" transform="translate(.5 -28.77)"/>
+			<path id="well" class="well" d="M1654.19 1274.57h51.66v1334.71h-51.66z"/>
+			<rect id="thermal_storage" class="thermStore" x="1330.17" y="1314.7" width="298.39" height="233.91" rx="10"/>
+			<path id="thermal_pipe" class="thermPipe" d="M1567.07 1552.8h-3.21a31.21 31.21 0 01-31.21-31.21v-124.06a11.21 11.21 0 00-11.21-11.22 11.22 11.22 0 00-11.22 11.22v124.06a31.21 31.21 0 01-31.22 31.21 31.21 31.21 0 01-31.21-31.21V1399a11.37 11.37 0 00-11.36-11.36 11.37 11.37 0 00-11.37 11.36v122.49a31.35 31.35 0 01-31.35 31.35 31.36 31.36 0 01-31.35-31.35v-212.93a10.24 10.24 0 019.34-10.32 10 10 0 0110.66 10v213.23a11.35 11.35 0 0011.35 11.35 11.35 11.35 0 0011.35-11.35v-122.66a31.21 31.21 0 0131.22-31.21h.29a31.21 31.21 0 0131.22 31.21v122.78a11.21 11.21 0 0011.21 11.21 11.21 11.21 0 0011.21-11.21v-124.06a31.22 31.22 0 0131.22-31.22 31.22 31.22 0 0131.21 31.22v124.06a11.21 11.21 0 0011.21 11.21h3.21a11.21 11.21 0 0011.22-11.21v-242.18a31.21 31.21 0 0131.21-31.21h48.81a31.21 31.21 0 0131.21 31.21v23.28a10.22 10.22 0 01-9.33 10.32 10 10 0 01-10.67-10v-23.62a11.21 11.21 0 00-11.21-11.21h-48.8a11.21 11.21 0 00-11.21 11.21v242.18a31.21 31.21 0 01-31.22 31.23z" transform="translate(.5 -28.77)"/>
+			<path id="compressor" class="compressor" d="M1415.07 1309.17l-85.4-1.43 6.19-83.83a18 18 0 0118-16.68h36a18 18 0 0117.94 16.47z" transform="translate(.5 -28.77)"/>
+			<path id="top_of_well" class="topOfWell" d="M1649.48 1256.38h61.09v64.52h-61.09z"/>
 		</svg>
-    </section>
+    </div>
     <section class="section static">
-        <p_wht>TODO: scrape the <a href="http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet">Alberta energy market supply and demand.</a> <br>
-			Calculate charging / discharging amount.
+        <p>TODO: scrape the <a href="http://ets.aeso.ca/ets_web/ip/Market/Reports/CSDReportServlet">Alberta energy
+            market supply and demand.</a> <br>
+            Calculate charging / discharging amount.
             Animate to show: lining of well, installation of thermal storage, charging... and then discharging.
-			Lock header and put links to sections (???)
-        </p_wht>
+            Lock header and put links to sections (???)
+        </p>
     </section>
 </main>
+</html>
