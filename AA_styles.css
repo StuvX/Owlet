@@ -1,5 +1,12 @@
+:root {
+	--timing: 1;
+}
+
 /* Tiny reset thingy */
-body,html{margin:0;padding:0}
+body,html{
+	margin:0;
+	padding:0;
+}
 
 .wrapper {
   /* The height needs to be set to a fixed value for the effect to work.
@@ -41,14 +48,13 @@ body,html{margin:0;padding:0}
    * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
   transform: translateZ(-1px) scale(1.6);
   /* Force the background image to fill the whole element. */
-  /* background-size: cover%; */
+   background-size: cover;
   /* Keep the image from overlapping sibling elements. */
-  /* z-index: -2; */
+   z-index: -2;
 }
 /* The styling for the static div. */
 .static {
     background: rgba(255,102,102,1);
-    font-size: inherit;
 	height: 20%;
 }
 
@@ -56,7 +62,7 @@ body,html{margin:0;padding:0}
 	position: relative;
 	background: -webkit-linear-gradient(-90deg, #313292, #313292 50%, rgba(255,102,102,1) 99%);
 	font-size: inherit;
-	height: 100%;
+	height: 130%;
 	z-index: 0;
 }
 
@@ -120,13 +126,6 @@ body,html{margin:0;padding:0}
 	background: -webkit-linear-gradient(-87deg, rgba(255,102,102,1), rgba(255,102,102,0.9) 10%, rgba(255,102,102,0.1) 25%,rgba(255,255,255,0.0) 50%,  #323292 80%);
 }
 
-
-h1 {
-	font-family: sans-serif;
-	color: white;
-	text-align: center;
-	font-size: 36px;
-}
 header h1 {
     font-family: cooper-black-std, sans-serif;
     color: white;
@@ -148,7 +147,7 @@ header img {
 	z-index: 0;
 	padding-left: 8px;
 }
-header h3 {
+header h2 {
 	font-family: sans-serif;
 	color: white;
 	text-align: right;
@@ -159,30 +158,41 @@ header h3 {
 	/* font-size-adjust: auto; */
 }
 
-
 header{
 	margin-top: 10px;
 	background: linear-gradient(145deg, rgba(255,255,255,1), rgba(255,102,102,1) 72%);
 }
-body_h1 {
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	color: white;
-	text-align: center;
-	font-size: 240%;
-	margin-top: -600px;
-	margin-bottom: 10px;
-	font-weight: bold;
-	/* font-size-adjust: auto; */
+
+h1 {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 3em;
+    text-shadow: -0.1em 0.1em rgba(255,102,102,0.5);
 }
 
 h4 {
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	color: white;
-	text-align: center;
-	font-size: 210%;
-	margin-top: 10px;
-	margin-bottom: 10px;
+    color: white;
+	text-align: left;
+	font-size: 2em;
+	margin-top: 0em;
+	margin-left: 1em;
+    margin-right: 1em;
 	/* font-size-adjust: auto; */
+}
+
+.h5 {
+    font-size: 240%;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    /* font-size-adjust: auto; */
+}
+
+.p {
+    font-size: 3em;
+    text-align: left;
+    color: white;
 }
 
 body{
@@ -191,24 +201,8 @@ body{
 span{
    display:inline-block;
 }
-/*iframe{*/
-/*    !*position: relative;*!*/
-/*	height: 450px;*/
-/*	width: 600px;*/
-/*	float: right;*/
-/*}*/
 
-p_wht{
-	font-size: 30px;
-	justify-content: left;
-	color: white;
-}
 
-p_blk{
-	font-size: 30px;
-	justify-content: left;
-	color: black;
-}
 
 a:link {
   color: #330000;
@@ -234,48 +228,66 @@ a:active {
   text-decoration: underline;
 }
 
-.turbine-wrap {
-	height: 0;
-	padding-top: 100%;
-	position: relative;
-	background: rgba(255,102,102,1);
-}
-
-.turbine-position {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #313292;
-}
-
 #windy{
     display: table;
     position: center;
-	height:450px;
+	height:460px;
 	width:100%;
 }
 
-.tower{
+.turbine{
 	fill: #ffffff
 }
 .blades{
+	stroke: #ffffff;
+	stroke-width: 1px;
 	fill: #ffffff;
-	animation: spinning 8s linear infinite;
-	transform-origin: 560px 533px;
-}
-.circle{
-	fill: #ffffff
+	fill-opacity: 1;
+	animation: spinning calc(var(--timing)*1.6s) linear infinite;
+	transform-origin: 1544.14px 530px;
 }
 
-.small {font: italic 2em sans-serif;}
+ .well{
+     stroke:#000;
+     fill:#21D4FD;
+ }
+
+.ground{
+    stroke:#000;
+    fill:#0c6;
+}
+
+.thermStore{
+    stroke:#000;
+    fill:#ffffff;
+}
+
+.thermPipe{
+    fill:url(#linear-gradient-1);
+    stroke:#ffffff;
+	/*animation: pulsing calc(var(--timing)*1.6s) linear infinite;*/
+
+}
+
+.compressor{
+     fill: #faff6d;
+ }
+
+.topOfWell{
+    fill: #313292;
+}
+
 
 @keyframes spinning {
 	from {
 		transform: rotate(0deg);
 	}
 	to {
-		transform: rotate(120deg);
+		transform: rotate(360deg);
 	}
+}
+
+@keyframes pulsing {
+	0% {opacity: 1;}
+	50% {opacity: 0.6;}
 }

@@ -9,9 +9,11 @@
   "description": "website of Owlet",
   "main": "Orphaned_Wells.js",
   "devDependencies": {
-    "es-dev-server": "^1.23.1"
+    "es-dev-server": "^1.23.1",
+    "http-server": "^0.12.0"
   },
   "scripts": {
+    "start": "npx http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,5 +26,8 @@
     "url": "https://github.com/StuvX/Owlet/issues"
   },
   "homepage": "https://github.com/StuvX/Owlet#readme",
-  "contributors": ["Willy", "Toly"]
+  "contributors": [
+    "Willy",
+    "Toly"
+  ]
 }
