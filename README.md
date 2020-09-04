@@ -1,4 +1,4 @@
-# Owlet Readme
+# Owlet - can you think of a better name?
 
 Owlet is a website to promote the idea of using orphaned oil wells for compressed air energy storage.
 
@@ -9,7 +9,7 @@ To run the website you will need: [Node.js](https://nodejs.org/en/)
 clone this repository,
 in terminal type:
 `npm start` and hit enter.
-npm should serve the website on your at [localhost:8080](localhost:8080).
+npm should serve the website on your machine at [localhost:8080](http://localhost:8080).
 
 ## TODO
 1. Make the webshite look better.
