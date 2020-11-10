@@ -28,7 +28,7 @@ body,html{
 
   /* For text formatting. */
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   color: white;
   /* text-shadow: 0 0 0px #000; */
@@ -161,6 +161,7 @@ header h2 {
 header{
 	margin-top: 10px;
 	background: linear-gradient(145deg, rgba(255,255,255,1), rgba(255,102,102,1) 72%);
+	overflow-y: hidden;
 }
 
 h1 {
@@ -231,8 +232,38 @@ a:active {
 #windy{
     display: table;
     position: center;
-	height:460px;
-	width:100%;
+		background: rgba(255,102,102,1);
+		margin-left: auto;
+		margin-right: auto;
+		height:460px;
+		width: 80%;
+}
+
+/* This parent can be any width and height */
+.block {
+  text-align: center;
+
+  /* May want to do this if there is risk the container may be narrower than the element inside */
+  white-space: nowrap;
+}
+
+/* The ghost, nudged to maintain perfect centering */
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+/* The element to be centered, can also be of any width and height */
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+  width: 300px;
+	padding: 10 px 15px;
+	border: #a0a0a0 solid 1px;
+	background: rgba(255,102,102,1);
 }
 
 .turbine{
