@@ -141,7 +141,7 @@ windyInit(options, windy => {
                 }
             }
 
-            document.getElementById('windOut').innerHTML = "With a 4.2&nbspMW " + "<a href='https://www.vestas.com/en/products/4-mw-platform/v150-4_2_mw'>Vestas wind turbine</a>" + " at each well on the map, they would be generating "+ (totalPower/1000).toFixed(0)+ "&nbspMW, <br> with an average output of " +(totalPower/numTurbines/1000).toFixed(1) + "&nbspMW";
+            document.getElementById('windOut').innerHTML = "With a 4.2&nbspMW " + "<a href='https://www.vestas.com/en/products/4-mw-platform/v150-4_2_mw'>Vestas turbine</a>" + " at each well on the map, they would be generating "+ (totalPower/1000).toFixed(0)+ "&nbspMW, with an average output of " +(totalPower/numTurbines/1000).toFixed(1) + "&nbspMW";
             document.documentElement.style.setProperty('--timing',4200/(totalPower/numTurbines).toFixed(3));
             // document.querySelector('.blades').style.timing = 8000/(totalPower/1000).toFixed(0);
             // const popLoc = map.getCenter();
