@@ -31,6 +31,7 @@ body,html{
   align-items: left;
   justify-content: center;
   color: white;
+  vertical-align: top;
   /* text-shadow: 0 0 0px #000; */
 }
 
@@ -67,6 +68,13 @@ body,html{
 	z-index: 0;
 }
 
+.half_width {
+  background: rgba(255,102,102,1);
+  height: 20vh;
+  width: 60%;
+  vertical-align: top;
+}
+
 .bg1::after {
 	background-image: url(Assets/cunningham_ranch.jpg);
 	-webkit-background-size: cover;
@@ -97,11 +105,12 @@ body,html{
 
 .bg2::before {
 	content:'';
-	position: absolute;
+  position: absolute;
+  align-items: middle;
 	top: 0;
 	bottom: 0;
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100vh;
 	z-index: -1;
 	background: -webkit-linear-gradient(93deg, rgba(255,102,102,1), rgba(255,102,102,1) 7%, rgba(255,102,102,0.05) 33%,
 	rgba(255,102,102,0.8) 80%, rgba(255,102,102,1) 99%);
@@ -121,7 +130,7 @@ body,html{
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	height: 120%;
+	height: 100vh;
 	width: 100%;
 	z-index: -1;
 	background: -webkit-linear-gradient(-87deg, rgba(255,102,102,1), rgba(255,102,102,0.9) 10%, rgba(255,102,102,0.1) 25%,rgba(255,255,255,0.0) 50%,  #323292 80%);
@@ -162,7 +171,8 @@ header h2 {
 header{
 	margin-top: 10px;
 	background: linear-gradient(145deg, rgba(255,255,255,1), rgba(255,102,102,1) 72%);
-	overflow-y: hidden;
+  height: 130px;
+  line-height: 130px;
 }
 
 h1 {
@@ -174,16 +184,16 @@ h1 {
 }
 
 h4 {
-    color: white;
+  color: white;
 	text-align: left;
 	font-size: 2em;
 	margin-top: 0em;
 	margin-left: 1em;
-    margin-right: 1em;
+  margin-right: 1em;
 	/* font-size-adjust: auto; */
 }
 
-.h5 {
+h5 {
     font-size: 240%;
     margin-top: 20px;
     margin-bottom: 0px;
@@ -191,10 +201,13 @@ h4 {
     /* font-size-adjust: auto; */
 }
 
-.p {
-    font-size: 3em;
-    text-align: left;
-    color: white;
+h6 {
+  color: white;
+	text-align: left;
+	font-size: 1em;
+	margin-top: 0em;
+	margin-left: 1em;
+  margin-right: 1em;
 }
 
 body{
